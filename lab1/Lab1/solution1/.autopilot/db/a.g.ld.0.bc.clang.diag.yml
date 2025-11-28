@@ -1,0 +1,384 @@
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaPartiallyUnroll
+DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Col_Loop
+  - String:          ''' ('
+  - LoopLoc:         'image_diff_posterize.c:76:15'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          image_diff_posterize
+  - String:          ''' partially '
+  - String:          ''
+  - String:          'with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: image_diff_posterize.c, Line: 28, Column: 0 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          image_diff_posterize.rowC
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '8'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: image_diff_posterize.c, Line: 27, Column: 0 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          image_diff_posterize.rowB
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '8'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: image_diff_posterize.c, Line: 26, Column: 0 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          image_diff_posterize.rowA
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '8'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc.load.2
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - String:          ' '
+  - ArrayName:       A
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        Read_Loop
+  - String:          ' '
+  - LoopLoc:         'image_diff_posterize.c:47:13'
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc.load.16
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep150seq
+  - String:          ' '
+  - ArrayName:       B
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        Read_Loop
+  - String:          ' '
+  - LoopLoc:         'image_diff_posterize.c:47:13'
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: image_diff_posterize.c, Line: 92, Column: 30 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc60.store.22
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep151seq
+  - String:          ' '
+  - ArrayName:       C
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        Write_Loop
+  - String:          ' '
+  - LoopLoc:         'image_diff_posterize.c:92:25'
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            MayExposeInDataFlowRegion
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          Skip burst inference
+  - String:          ' for loop '''
+  - LoopName:        Row_Loop
+  - String:          ''''
+  - String:          ' since access may be exposed into dataflow region'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - String:          ' '
+  - ArrayName:       A
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            MayExposeInDataFlowRegion
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          Skip burst inference
+  - String:          ' for loop '''
+  - LoopName:        Row_Loop
+  - String:          ''''
+  - String:          ' since access may be exposed into dataflow region'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep150seq
+  - String:          ' '
+  - ArrayName:       B
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            MayExposeInDataFlowRegion
+DebugLoc:        { File: image_diff_posterize.c, Line: 92, Column: 30 }
+Function:        image_diff_posterize
+Args:            
+  - String:          Skip burst inference
+  - String:          ' for loop '''
+  - LoopName:        Row_Loop
+  - String:          ''''
+  - String:          ' since access may be exposed into dataflow region'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep151seq
+  - String:          ' '
+  - ArrayName:       C
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' and bit width '
+  - Width:           '8'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        Read_Loop
+  - String:          ' '
+  - LoopLoc:         'image_diff_posterize.c:47:13'
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' and bit width '
+  - Width:           '8'
+  - String:          ' in loop '''
+  - LoopName:        Read_Loop
+  - String:          '''('
+  - LoopLoc:         'image_diff_posterize.c:47:13'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem0
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' and bit width '
+  - Width:           '8'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        Read_Loop
+  - String:          ' '
+  - LoopLoc:         'image_diff_posterize.c:47:13'
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: image_diff_posterize.c, Line: 47, Column: 18 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' and bit width '
+  - Width:           '8'
+  - String:          ' in loop '''
+  - LoopName:        Read_Loop
+  - String:          '''('
+  - LoopLoc:         'image_diff_posterize.c:47:13'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem1
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: image_diff_posterize.c, Line: 92, Column: 30 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' and bit width '
+  - Width:           '8'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq2
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        Write_Loop
+  - String:          ' '
+  - LoopLoc:         'image_diff_posterize.c:92:25'
+  - String:          ' '
+  - Function:        image_diff_posterize
+    DebugLoc:        { File: image_diff_posterize.c, Line: 18, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: image_diff_posterize.c, Line: 92, Column: 30 }
+Function:        image_diff_posterize
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' and bit width '
+  - Width:           '8'
+  - String:          ' in loop '''
+  - LoopName:        Write_Loop
+  - String:          '''('
+  - LoopLoc:         'image_diff_posterize.c:92:25'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem2
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

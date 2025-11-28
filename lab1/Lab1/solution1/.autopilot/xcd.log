@@ -1,0 +1,19 @@
+11/28/25 18:38:18: Running xcd server. This server was NOT built by gradle, but presumably rdi.
+11/28/25 18:38:18: Server was asked to start on port: '58562'
+11/28/25 18:38:18: Server is using token UUID: 'aaa2cfc1-b1e9-4a8d-b0f5-1b40d3f0e267'
+11/28/25 18:38:18: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+11/28/25 18:38:18: Attempting to start server on port '58562'
+11/28/25 18:38:18: Running Dispatch Server
+11/28/25 18:38:18: Version 2.2.0
+11/28/25 18:38:25: Dispatch Server: Accepted socket connection from client
+11/28/25 18:38:25: Starting Socket connection
+11/28/25 18:38:25: EXCHANGE_TOKEN received, server token: aaa2cfc1-b1e9-4a8d-b0f5-1b40d3f0e267, passed token: aaa2cfc1-b1e9-4a8d-b0f5-1b40d3f0e267
+11/28/25 18:38:25: SESSION_MGR: creating session with session uuid: '1f286fbc-6b7c-4ddb-81b7-227ebf2ef352' and name 'vitis_hls'
+11/28/25 18:38:25: KERNEL_SVC: creating session with uuid: '1f286fbc-6b7c-4ddb-81b7-227ebf2ef352' and name 'vitis_hls'
+11/28/25 18:38:25: GUIDANCE_SMGR: creating guidance session with uuid: '1f286fbc-6b7c-4ddb-81b7-227ebf2ef352' and name 'vitis_hls'
+11/28/25 18:38:52: STOP_SERVER received, server token: aaa2cfc1-b1e9-4a8d-b0f5-1b40d3f0e267, passed token: aaa2cfc1-b1e9-4a8d-b0f5-1b40d3f0e267
+11/28/25 18:38:52: Socket received request to stop server.
+11/28/25 18:38:52: Dispatch Server: do_await_stop
+11/28/25 18:38:52: SERVER: destructor for server bound to port 58562
+11/28/25 18:38:52: Server exiting with status 0.
+11/28/25 18:38:52: Closing log file.

@@ -1,0 +1,35 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "simpleALU",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "C:\/Users\/Stavros\/AppData\/Roaming\/Xilinx\/Vitis\/Lab0\/solution1\/directives.tcl",
+          "sourceLine": "6",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "simpleALU"
+              }]
+          }
+        },
+        {
+          "functionName": "simpleALU",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "C:\/Users\/Stavros\/AppData\/Roaming\/Xilinx\/Vitis\/Lab0\/solution1\/csynth.tcl",
+          "sourceLine": "14",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "simpleALU"
+              }]
+          }
+        }
+      ]
+    }]}

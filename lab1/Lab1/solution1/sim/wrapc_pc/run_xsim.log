@@ -1,0 +1,265 @@
+=================================================
+IMAGE_DIFF_POSTERIZE TESTBENCH
+=================================================
+Dimensions: 256 x 256
+Thresholds: T1 = 32, T2 = 96
+=================================================
+
+--- Test Case 1: Gradient Patterns ---
+
+Image A (8*8 pixels):
+  0   1   2   3   4   5   6   7 
+  1   2   3   4   5   6   7   8 
+  2   3   4   5   6   7   8   9 
+  3   4   5   6   7   8   9  10 
+  4   5   6   7   8   9  10  11 
+  5   6   7   8   9  10  11  12 
+  6   7   8   9  10  11  12  13 
+  7   8   9  10  11  12  13  14 
+
+Image B (8*8 pixels):
+ 50  51  52  53  54  55  56  57 
+ 51  52  53  54  55  56  57  58 
+ 52  53  54  55  56  57  58  59 
+ 53  54  55  56  57  58  59  60 
+ 54  55  56  57  58  59  60  61 
+ 55  56  57  58  59  60  61  62 
+ 56  57  58  59  60  61  62  63 
+ 57  58  59  60  61  62  63  64 
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 1 PASSED!
+
+Output Image C (Hardware) (8*8 pixels):
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+
+Image statistics:
+  Black pixels (0):     0 (0.00%)
+  Gray pixels (128):    52736 (80.47%)
+  White pixels (255):   12800 (19.53%)
+  Total pixels:         65536
+
+--- Test Case 2: Random Values ---
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 2 PASSED!
+
+Image statistics:
+  Black pixels (0):     15080 (23.01%)
+  Gray pixels (128):    24711 (37.71%)
+  White pixels (255):   25745 (39.28%)
+  Total pixels:         65536
+
+--- Test Case 3: Edge Cases ---
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 3 PASSED!
+
+Image statistics:
+  Black pixels (0):     21846 (33.33%)
+  Gray pixels (128):    21845 (33.33%)
+  White pixels (255):   21845 (33.33%)
+  Total pixels:         65536
+
+=================================================
+FINAL TESTBENCH RESULT
+=================================================
+>>> ALL TESTS PASSED <<<
+Hardware accelerator works correctly.
+
+C:\Users\Stavros\AppData\Roaming\Xilinx\Vitis\Lab1\solution1\sim\verilog>set PATH= 
+
+C:\Users\Stavros\AppData\Roaming\Xilinx\Vitis\Lab1\solution1\sim\verilog>call C:/Xilinx/Vivado/2022.2/bin/xelab xil_defaultlib.apatb_image_diff_posterize_top glbl -Oenable_linking_all_libraries  -prj image_diff_posterize.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_0_20 -L floating_point_v7_1_15 --lib "ieee_proposed=./ieee_proposed" -s image_diff_posterize -debug wave 
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_image_diff_posterize_top glbl -Oenable_linking_all_libraries -prj image_diff_posterize.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_20 -L floating_point_v7_1_15 --lib ieee_proposed=./ieee_proposed -s image_diff_posterize -debug wave 
+Multi-threading is on. Using 2 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/AESL_automem_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/AESL_automem_B.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_B
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/AESL_automem_C.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_C
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/image_diff_posterize.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_image_diff_posterize_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/image_diff_posterize.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module image_diff_posterize
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/image_diff_posterize_flow_control_loop_pipe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module image_diff_posterize_flow_control_loop_pipe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.image_diff_posterize_flow_contro...
+Compiling module xil_defaultlib.image_diff_posterize
+Compiling module xil_defaultlib.AESL_automem_A
+Compiling module xil_defaultlib.AESL_automem_B
+Compiling module xil_defaultlib.AESL_automem_C
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_image_diff_posterize_top
+Compiling module work.glbl
+Built simulation snapshot image_diff_posterize
+
+****** xsim v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/image_diff_posterize/xsim_script.tcl
+# xsim {image_diff_posterize} -view {{image_diff_posterize_dataflow_ana.wcfg}} -tclbatch {image_diff_posterize.tcl} -protoinst {image_diff_posterize.protoinst}
+INFO: [Wavedata 42-565] Reading protoinst file image_diff_posterize.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize//AESL_inst_image_diff_posterize_activity
+Time resolution is 1 ps
+open_wave_config image_diff_posterize_dataflow_ana.wcfg
+source image_diff_posterize.tcl
+## log_wave [get_objects -filter {type == in_port || type == out_port || type == inout_port || type == port} /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/*]
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set return_group [add_wave_group return(memory) -into $coutputgroup]
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/C_d0 -into $return_group -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/C_we0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/C_ce0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/C_address0 -into $return_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set return_group [add_wave_group return(memory) -into $cinputgroup]
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/B_q0 -into $return_group -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/B_ce0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/B_address0 -into $return_group -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/A_q0 -into $return_group -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/A_ce0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/A_address0 -into $return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/ap_start -into $blocksiggroup
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/ap_done -into $blocksiggroup
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/ap_idle -into $blocksiggroup
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_image_diff_posterize_top/AESL_inst_image_diff_posterize/ap_clk -into $clockgroup
+## save_wave_config image_diff_posterize.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 3 [0.00%] @ "125000"
+// RTL Simulation : 1 / 3 [100.00%] @ "655505000"
+// RTL Simulation : 2 / 3 [100.00%] @ "1310875000"
+// RTL Simulation : 3 / 3 [100.00%] @ "1966245000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 1966305 ns : File "C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/sim/verilog/image_diff_posterize.autotb.v" Line 316
+run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 271.371 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Fri Nov 28 15:51:19 2025...
+=================================================
+IMAGE_DIFF_POSTERIZE TESTBENCH
+=================================================
+Dimensions: 256 x 256
+Thresholds: T1 = 32, T2 = 96
+=================================================
+
+--- Test Case 1: Gradient Patterns ---
+
+Image A (8*8 pixels):
+  0   1   2   3   4   5   6   7 
+  1   2   3   4   5   6   7   8 
+  2   3   4   5   6   7   8   9 
+  3   4   5   6   7   8   9  10 
+  4   5   6   7   8   9  10  11 
+  5   6   7   8   9  10  11  12 
+  6   7   8   9  10  11  12  13 
+  7   8   9  10  11  12  13  14 
+
+Image B (8*8 pixels):
+ 50  51  52  53  54  55  56  57 
+ 51  52  53  54  55  56  57  58 
+ 52  53  54  55  56  57  58  59 
+ 53  54  55  56  57  58  59  60 
+ 54  55  56  57  58  59  60  61 
+ 55  56  57  58  59  60  61  62 
+ 56  57  58  59  60  61  62  63 
+ 57  58  59  60  61  62  63  64 
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 1 PASSED!
+
+Output Image C (Hardware) (8*8 pixels):
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+
+Image statistics:
+  Black pixels (0):     0 (0.00%)
+  Gray pixels (128):    52736 (80.47%)
+  White pixels (255):   12800 (19.53%)
+  Total pixels:         65536
+
+--- Test Case 2: Random Values ---
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 2 PASSED!
+
+Image statistics:
+  Black pixels (0):     15080 (23.01%)
+  Gray pixels (128):    24711 (37.71%)
+  White pixels (255):   25745 (39.28%)
+  Total pixels:         65536
+
+--- Test Case 3: Edge Cases ---
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 3 PASSED!
+
+Image statistics:
+  Black pixels (0):     21846 (33.33%)
+  Gray pixels (128):    21845 (33.33%)
+  White pixels (255):   21845 (33.33%)
+  Total pixels:         65536
+
+=================================================
+FINAL TESTBENCH RESULT
+=================================================
+>>> ALL TESTS PASSED <<<
+Hardware accelerator works correctly.

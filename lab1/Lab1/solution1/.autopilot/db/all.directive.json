@@ -1,0 +1,35 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "image_diff_posterize",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "C:\/Users\/Stavros\/AppData\/Roaming\/Xilinx\/Vitis\/Lab1\/solution1\/directives.tcl",
+          "sourceLine": "6",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "image_diff_posterize"
+              }]
+          }
+        },
+        {
+          "functionName": "image_diff_posterize",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "C:\/Users\/Stavros\/AppData\/Roaming\/Xilinx\/Vitis\/Lab1\/solution1\/csynth.tcl",
+          "sourceLine": "14",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "image_diff_posterize"
+              }]
+          }
+        }
+      ]
+    }]}

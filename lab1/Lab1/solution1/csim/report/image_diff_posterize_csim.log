@@ -1,0 +1,96 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../image_diff_posterize.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Stavros' on host 'desktop-88frff7' (Windows NT_amd64 version 6.2) on Fri Nov 28 18:37:54 +0200 2025
+INFO: [HLS 200-10] In directory 'C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 0 seconds. Total elapsed time: 2.247 seconds; peak allocated memory: 7.430 MB.
+   Generating csim.exe
+=================================================
+IMAGE_DIFF_POSTERIZE TESTBENCH
+=================================================
+Dimensions: 256 x 256
+Thresholds: T1 = 32, T2 = 96
+=================================================
+
+--- Test Case 1: Gradient Patterns ---
+
+Image A (8*8 pixels):
+  0   1   2   3   4   5   6   7 
+  1   2   3   4   5   6   7   8 
+  2   3   4   5   6   7   8   9 
+  3   4   5   6   7   8   9  10 
+  4   5   6   7   8   9  10  11 
+  5   6   7   8   9  10  11  12 
+  6   7   8   9  10  11  12  13 
+  7   8   9  10  11  12  13  14 
+
+Image B (8*8 pixels):
+ 50  51  52  53  54  55  56  57 
+ 51  52  53  54  55  56  57  58 
+ 52  53  54  55  56  57  58  59 
+ 53  54  55  56  57  58  59  60 
+ 54  55  56  57  58  59  60  61 
+ 55  56  57  58  59  60  61  62 
+ 56  57  58  59  60  61  62  63 
+ 57  58  59  60  61  62  63  64 
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 1 PASSED!
+
+Output Image C (Hardware) (8*8 pixels):
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+128 128 128 128 128 128 128 128 
+
+Image statistics:
+  Black pixels (0):     0 (0.00%)
+  Gray pixels (128):    52736 (80.47%)
+  White pixels (255):   12800 (19.53%)
+  Total pixels:         65536
+
+--- Test Case 2: Random Values ---
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 2 PASSED!
+
+Image statistics:
+  Black pixels (0):     15080 (23.01%)
+  Gray pixels (128):    24711 (37.71%)
+  White pixels (255):   25745 (39.28%)
+  Total pixels:         65536
+
+--- Test Case 3: Edge Cases ---
+
+Running software reference...
+Running hardware accelerator...
+
+Comparing results...
+[PASS] Test Case 3 PASSED!
+
+Image statistics:
+  Black pixels (0):     21846 (33.33%)
+  Gray pixels (128):    21845 (33.33%)
+  White pixels (255):   21845 (33.33%)
+  Total pixels:         65536
+
+=================================================
+FINAL TESTBENCH RESULT
+=================================================
+>>> ALL TESTS PASSED <<<
+Hardware accelerator works correctly.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

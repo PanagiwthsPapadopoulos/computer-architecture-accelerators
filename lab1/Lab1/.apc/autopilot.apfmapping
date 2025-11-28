@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="image_diff_posterize.c" path="C:\Users\Stavros\AppData\Roaming\Xilinx\Vitis\image_diff_posterize.c"/>
+  </source>
+  <testbench>
+    <originFiles name="tb_image_diff_posterize.c" path="C:\Users\Stavros\AppData\Roaming\Xilinx\Vitis\Lab1\tb_image_diff_posterize.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

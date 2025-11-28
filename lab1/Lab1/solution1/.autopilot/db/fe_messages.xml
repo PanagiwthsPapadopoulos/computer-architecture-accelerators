@@ -1,0 +1,70 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-114" msg_severity="WARNING" msg_loc="image_diff_posterize.c:44:9" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/csynth.tcl:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=image_diff_posterize" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Stavros/AppData/Roaming/Xilinx/Vitis/Lab1/solution1/directives.tcl:6:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=image_diff_posterize" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:19:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=A bundle=gmem0 offset=slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:20:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=B bundle=gmem1 offset=slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=C bundle=gmem2 offset=slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:33:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=rowA cyclic factor=8" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:34:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=rowB cyclic factor=8" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:35:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=rowC cyclic factor=8" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:42:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=(1 &lt;&lt; 8) max=(1 &lt;&lt; 8)" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:44:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:49:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=(1 &lt;&lt; 8) max=(1 &lt;&lt; 8)" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:77:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:78:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="factor=8" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:79:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=(1 &lt;&lt; 8) max=(1 &lt;&lt; 8)" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:93:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="image_diff_posterize.c:94:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="image_diff_posterize" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=(1 &lt;&lt; 8) max=(1 &lt;&lt; 8)" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-188" msg_severity="INFO" msg_loc="image_diff_posterize.c:18:0" msg_body="Unrolling loop 'Col_Loop' (image_diff_posterize.c:76:15) in function 'image_diff_posterize' partially with a factor of 8">
+        <args Factor="8" LoopLoc="image_diff_posterize.c:76:15" LoopName="Col_Loop"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="image_diff_posterize.c:28:0" msg_body="Applying array_partition to 'image_diff_posterize.rowC': Cyclic partitioning with factor 8 on dimension 1.">
+        <args Dim="1" Factor="8" Mode="Cyclic" UOName="image_diff_posterize.rowC"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="image_diff_posterize.c:27:0" msg_body="Applying array_partition to 'image_diff_posterize.rowB': Cyclic partitioning with factor 8 on dimension 1.">
+        <args Dim="1" Factor="8" Mode="Cyclic" UOName="image_diff_posterize.rowB"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="image_diff_posterize.c:26:0" msg_body="Applying array_partition to 'image_diff_posterize.rowA': Cyclic partitioning with factor 8 on dimension 1.">
+        <args Dim="1" Factor="8" Mode="Cyclic" UOName="image_diff_posterize.rowA"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindInfo>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op sdiv" ID="" IMPL="auto_seq" LATENCY="35" OPTYPE="sdiv" PRAGMA="" RTLNAME="sdiv_32s_32s_32_36_seq_1_U1" SOURCE="Lab0/demo.cpp:16" VARIABLE="sdiv_ln16" MODULE="simpleALU" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op mul" ID="" IMPL="auto" LATENCY="0" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U2" SOURCE="Lab0/demo.cpp:12" VARIABLE="mul_ln12" MODULE="simpleALU" LOOP="" BUNDLEDNAME="" DSP="3" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op sub" ID="" IMPL="fabric" LATENCY="0" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln8_fu_73_p2" SOURCE="Lab0/demo.cpp:8" VARIABLE="sub_ln8" MODULE="simpleALU" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="add_ln4_fu_80_p2" SOURCE="Lab0/demo.cpp:4" VARIABLE="add_ln4" MODULE="simpleALU" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+</BindInfo>

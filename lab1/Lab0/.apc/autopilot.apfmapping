@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="demo.cpp" path="C:\Users\Stavros\AppData\Roaming\Xilinx\Vitis\Lab0\demo.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="tb_demo.cpp" path="C:\Users\Stavros\AppData\Roaming\Xilinx\Vitis\Lab0\tb_demo.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

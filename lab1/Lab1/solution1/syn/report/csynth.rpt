@@ -1,0 +1,218 @@
+
+
+================================================================
+== Synthesis Summary Report of 'image_diff_posterize'
+================================================================
++ General Information: 
+    * Date:           Fri Nov 28 18:38:50 2025
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        Lab1
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu200-fsgd2104-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |                  Modules                  | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |    |            |            |     |
+    |                  & Loops                  | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |     LUT    | URAM|
+    +-------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |+ image_diff_posterize                     |     -|  0.00|    69168|  6.917e+05|         -|    69169|     -|        no|     -|   -|  2899 (~0%)|  5502 (~0%)|    -|
+    | o Row_Loop                                |     -|  7.30|    69167|  6.917e+05|       573|        -|   256|        no|     -|   -|           -|           -|    -|
+    |  + dataflow_in_loop_Row_Loop*             |     -|  0.00|      571|  5.710e+03|         -|      269|     -|  dataflow|     -|   -|   542 (~0%)|  2338 (~0%)|    -|
+    |   + entry_proc                            |     -|  5.89|        0|      0.000|         -|        0|     -|        no|     -|   -|     2 (~0%)|    20 (~0%)|    -|
+    |   + Read_Loop_proc                        |     -|  0.00|      268|  2.680e+03|         -|      268|     -|        no|     -|   -|   194 (~0%)|   592 (~0%)|    -|
+    |    + Read_Loop_proc_Pipeline_Read_Loop    |     -|  0.00|      259|  2.590e+03|         -|      259|     -|        no|     -|   -|    46 (~0%)|    87 (~0%)|    -|
+    |     o Read_Loop                           |     -|  7.30|      257|  2.570e+03|         3|        1|   256|       yes|     -|   -|           -|           -|    -|
+    |   + Col_Loop_proc                         |     -|  3.37|       34|    340.000|         -|       34|     -|        no|     -|   -|    17 (~0%)|   658 (~0%)|    -|
+    |    o Col_Loop                             |     -|  7.30|       32|    320.000|         2|        1|    32|       yes|     -|   -|           -|           -|    -|
+    |   + Write_Loop_proc                       |     -|  0.00|      267|  2.670e+03|         -|      267|     -|        no|     -|   -|   100 (~0%)|   428 (~0%)|    -|
+    |    + Write_Loop_proc_Pipeline_Write_Loop  |     -|  0.00|      259|  2.590e+03|         -|      259|     -|        no|     -|   -|    25 (~0%)|   119 (~0%)|    -|
+    |     o Write_Loop                          |     -|  7.30|      257|  2.570e+03|         3|        1|   256|       yes|     -|   -|           -|           -|    -|
+    +-------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem0 | 8 -> 8     | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem1 | 8 -> 8     | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem2 | 8 -> 8     | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | A_1      | 0x10   | 32    | W      | Data signal of A                 |                                                                      |
+| s_axi_control | A_2      | 0x14   | 32    | W      | Data signal of A                 |                                                                      |
+| s_axi_control | B_1      | 0x1c   | 32    | W      | Data signal of B                 |                                                                      |
+| s_axi_control | B_2      | 0x20   | 32    | W      | Data signal of B                 |                                                                      |
+| s_axi_control | C_1      | 0x28   | 32    | W      | Data signal of C                 |                                                                      |
+| s_axi_control | C_2      | 0x2c   | 32    | W      | Data signal of C                 |                                                                      |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------------+
+| Argument | Direction | Datatype       |
++----------+-----------+----------------+
+| A        | in        | unsigned char* |
+| B        | in        | unsigned char* |
+| C        | out       | unsigned char* |
++----------+-----------+----------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                       |
++----------+---------------+-----------+----------+-------------------------------+
+| A        | m_axi_gmem0   | interface |          |                               |
+| A        | s_axi_control | register  | offset   | name=A_1 offset=0x10 range=32 |
+| A        | s_axi_control | register  | offset   | name=A_2 offset=0x14 range=32 |
+| B        | m_axi_gmem1   | interface |          |                               |
+| B        | s_axi_control | register  | offset   | name=B_1 offset=0x1c range=32 |
+| B        | s_axi_control | register  | offset   | name=B_2 offset=0x20 range=32 |
+| C        | m_axi_gmem2   | interface |          |                               |
+| C        | s_axi_control | register  | offset   | name=C_1 offset=0x28 range=32 |
+| C        | s_axi_control | register  | offset   | name=C_2 offset=0x2c range=32 |
++----------+---------------+-----------+----------+-------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+------------+-----------+--------+-------+------------------------------+
+| HW Interface | Loop       | Direction | Length | Width | Location                     |
++--------------+------------+-----------+--------+-------+------------------------------+
+| m_axi_gmem0  | Read_Loop  | read      | 256    | 8     | image_diff_posterize.c:47:13 |
+| m_axi_gmem1  | Read_Loop  | read      | 256    | 8     | image_diff_posterize.c:47:13 |
+| m_axi_gmem2  | Write_Loop | write     | 256    | 8     | image_diff_posterize.c:92:25 |
++--------------+------------+-----------+--------+-------+------------------------------+
+
+* Inferred Bursts and Widening Missed
++--------------+----------+----------+-------------------------------------------------------------------------------------------+------------------------------+
+| HW Interface | Variable | Loop     | Problem                                                                                   | Location                     |
++--------------+----------+----------+-------------------------------------------------------------------------------------------+------------------------------+
+| m_axi_gmem0  | A        | Row_Loop | Skip burst inference for loop 'Row_Loop' since access may be exposed into dataflow region | image_diff_posterize.c:47:18 |
+| m_axi_gmem1  | B        | Row_Loop | Skip burst inference for loop 'Row_Loop' since access may be exposed into dataflow region | image_diff_posterize.c:47:18 |
+| m_axi_gmem2  | C        | Row_Loop | Skip burst inference for loop 'Row_Loop' since access may be exposed into dataflow region | image_diff_posterize.c:92:30 |
++--------------+----------+----------+-------------------------------------------------------------------------------------------+------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------------+-----+--------+-------------+------+--------+---------+
+| Name                                     | DSP | Pragma | Variable    | Op   | Impl   | Latency |
++------------------------------------------+-----+--------+-------------+------+--------+---------+
+| + image_diff_posterize                   | 0   |        |             |      |        |         |
+|  + dataflow_in_loop_Row_Loop             | 0   |        |             |      |        |         |
+|    tmp_U                                 | -   |        | tmp         | fifo | srl    | 0       |
+|   + Read_Loop_proc                       | 0   |        |             |      |        |         |
+|     add_ln41_fu_160_p2                   | -   |        | add_ln41    | add  | fabric | 0       |
+|     add_ln41_1_fu_166_p2                 | -   |        | add_ln41_1  | add  | fabric | 0       |
+|    + Read_Loop_proc_Pipeline_Read_Loop   | 0   |        |             |      |        |         |
+|      add_ln47_fu_362_p2                  | -   |        | add_ln47    | add  | fabric | 0       |
+|   + Col_Loop_proc                        | 0   |        |             |      |        |         |
+|     diff_temp_fu_475_p2                  | -   |        | diff_temp   | sub  | fabric | 0       |
+|     sub_ln84_fu_493_p2                   | -   |        | sub_ln84    | sub  | fabric | 0       |
+|     diff_temp_1_fu_554_p2                | -   |        | diff_temp_1 | sub  | fabric | 0       |
+|     sub_ln84_1_fu_572_p2                 | -   |        | sub_ln84_1  | sub  | fabric | 0       |
+|     diff_temp_2_fu_633_p2                | -   |        | diff_temp_2 | sub  | fabric | 0       |
+|     sub_ln84_2_fu_651_p2                 | -   |        | sub_ln84_2  | sub  | fabric | 0       |
+|     diff_temp_3_fu_712_p2                | -   |        | diff_temp_3 | sub  | fabric | 0       |
+|     sub_ln84_3_fu_730_p2                 | -   |        | sub_ln84_3  | sub  | fabric | 0       |
+|     diff_temp_4_fu_791_p2                | -   |        | diff_temp_4 | sub  | fabric | 0       |
+|     sub_ln84_4_fu_809_p2                 | -   |        | sub_ln84_4  | sub  | fabric | 0       |
+|     diff_temp_5_fu_870_p2                | -   |        | diff_temp_5 | sub  | fabric | 0       |
+|     sub_ln84_5_fu_888_p2                 | -   |        | sub_ln84_5  | sub  | fabric | 0       |
+|     diff_temp_6_fu_949_p2                | -   |        | diff_temp_6 | sub  | fabric | 0       |
+|     sub_ln84_6_fu_967_p2                 | -   |        | sub_ln84_6  | sub  | fabric | 0       |
+|     diff_temp_7_fu_1028_p2               | -   |        | diff_temp_7 | sub  | fabric | 0       |
+|     sub_ln84_7_fu_1046_p2                | -   |        | sub_ln84_7  | sub  | fabric | 0       |
+|     add_ln76_fu_456_p2                   | -   |        | add_ln76    | add  | fabric | 0       |
+|   + Write_Loop_proc                      | 0   |        |             |      |        |         |
+|     add_ln41_fu_117_p2                   | -   |        | add_ln41    | add  | fabric | 0       |
+|    + Write_Loop_proc_Pipeline_Write_Loop | 0   |        |             |      |        |         |
+|      add_ln92_fu_212_p2                  | -   |        | add_ln92    | add  | fabric | 0       |
++------------------------------------------+-----+--------+-------------+------+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++------------------------------+------+------+--------+----------+---------+------+---------+
+| Name                         | BRAM | URAM | Pragma | Variable | Storage | Impl | Latency |
++------------------------------+------+------+--------+----------+---------+------+---------+
+| + image_diff_posterize       | 0    | 0    |        |          |         |      |         |
+|  + dataflow_in_loop_Row_Loop | 0    | 0    |        |          |         |      |         |
+|    C_c_U                     | -    | -    |        | C_c      | fifo    | srl  | 0       |
++------------------------------+------+------+--------+----------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Pragmas with Warnings
++----------+---------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type     | Options | Location                                          | Messages                                                                                                                                                                           |
++----------+---------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dataflow |         | image_diff_posterize.c:44 in image_diff_posterize | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
++----------+---------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------------+----------------------------------------+-----------------------------------------------------------+
+| Type            | Options                                | Location                                                  |
++-----------------+----------------------------------------+-----------------------------------------------------------+
+| interface       | m_axi port=A bundle=gmem0 offset=slave | image_diff_posterize.c:19 in image_diff_posterize, A      |
+| interface       | m_axi port=B bundle=gmem1 offset=slave | image_diff_posterize.c:20 in image_diff_posterize, B      |
+| interface       | m_axi port=C bundle=gmem2 offset=slave | image_diff_posterize.c:21 in image_diff_posterize, C      |
+| interface       | s_axilite port=return                  | image_diff_posterize.c:22 in image_diff_posterize, return |
+| array_partition | variable=rowA cyclic factor=8          | image_diff_posterize.c:33 in image_diff_posterize, rowA   |
+| array_partition | variable=rowB cyclic factor=8          | image_diff_posterize.c:34 in image_diff_posterize, rowB   |
+| array_partition | variable=rowC cyclic factor=8          | image_diff_posterize.c:35 in image_diff_posterize, rowC   |
+| loop_tripcount  | min=(1 << 8) max=(1 << 8)              | image_diff_posterize.c:42 in image_diff_posterize         |
+| pipeline        | II=1                                   | image_diff_posterize.c:48 in image_diff_posterize         |
+| loop_tripcount  | min=(1 << 8) max=(1 << 8)              | image_diff_posterize.c:49 in image_diff_posterize         |
+| pipeline        | II=1                                   | image_diff_posterize.c:77 in image_diff_posterize         |
+| unroll          | factor=8                               | image_diff_posterize.c:78 in image_diff_posterize         |
+| loop_tripcount  | min=(1 << 8) max=(1 << 8)              | image_diff_posterize.c:79 in image_diff_posterize         |
+| pipeline        | II=1                                   | image_diff_posterize.c:93 in image_diff_posterize         |
+| loop_tripcount  | min=(1 << 8) max=(1 << 8)              | image_diff_posterize.c:94 in image_diff_posterize         |
++-----------------+----------------------------------------+-----------------------------------------------------------+
+
+

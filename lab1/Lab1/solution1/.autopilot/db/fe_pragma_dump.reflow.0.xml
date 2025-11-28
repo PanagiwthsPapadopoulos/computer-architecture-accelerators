@@ -1,0 +1,18 @@
+<pragmas>
+<pragma file="image_diff_posterize.c" line="42" pragmaType="loop_tripcount" parentfunction="image_diff_posterize" min="256" max="256" avg="256"/>
+<pragma file="image_diff_posterize.c" line="44" pragmaType="dataflow" parentfunction="image_diff_posterize" disable_start_propagation="0"/>
+<pragma file="image_diff_posterize.c" line="48" pragmaType="pipeline" parentfunction="image_diff_posterize" off="0" ii="1" rewind="0" style=""/>
+<pragma file="image_diff_posterize.c" line="49" pragmaType="loop_tripcount" parentfunction="image_diff_posterize" min="256" max="256" avg="256"/>
+<pragma file="image_diff_posterize.c" line="78" pragmaType="unroll" parentfunction="image_diff_posterize" factor="8" skip_exit_check="0"/>
+<pragma file="image_diff_posterize.c" line="77" pragmaType="pipeline" parentfunction="image_diff_posterize" off="0" ii="1" rewind="0" style=""/>
+<pragma file="image_diff_posterize.c" line="79" pragmaType="loop_tripcount" parentfunction="image_diff_posterize" min="256" max="256" avg="256"/>
+<pragma file="image_diff_posterize.c" line="93" pragmaType="pipeline" parentfunction="image_diff_posterize" off="0" ii="1" rewind="0" style=""/>
+<pragma file="image_diff_posterize.c" line="94" pragmaType="loop_tripcount" parentfunction="image_diff_posterize" min="256" max="256" avg="256"/>
+<pragma file="image_diff_posterize.c" line="19" pragmaType="interface" parentfunction="image_diff_posterize" mode="m_axi" port="A" bundle="gmem0" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="image_diff_posterize.c" line="20" pragmaType="interface" parentfunction="image_diff_posterize" mode="m_axi" port="B" bundle="gmem1" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="image_diff_posterize.c" line="21" pragmaType="interface" parentfunction="image_diff_posterize" mode="m_axi" port="C" bundle="gmem2" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="image_diff_posterize.c" line="22" pragmaType="interface" parentfunction="image_diff_posterize" mode="s_axilite" port="" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="image_diff_posterize.c" line="33" pragmaType="array_partition" parentfunction="image_diff_posterize" dim="1" factor="8" mode="cyclic" dynamic="0" variable="image_diff_posterize.rowA"/>
+<pragma file="image_diff_posterize.c" line="34" pragmaType="array_partition" parentfunction="image_diff_posterize" dim="1" factor="8" mode="cyclic" dynamic="0" variable="image_diff_posterize.rowB"/>
+<pragma file="image_diff_posterize.c" line="35" pragmaType="array_partition" parentfunction="image_diff_posterize" dim="1" factor="8" mode="cyclic" dynamic="0" variable="image_diff_posterize.rowC"/>
+</pragmas>

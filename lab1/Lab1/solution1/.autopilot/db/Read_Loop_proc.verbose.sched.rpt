@@ -1,0 +1,204 @@
+
+
+================================================================
+== Vitis HLS Report for 'Read_Loop_proc'
+================================================================
+* Date:           Fri Nov 28 18:38:37 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        Lab1
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu200-fsgd2104-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      268|      268|  2.680 us|  2.680 us|  268|  268|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 10
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.57>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%B_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %B"   --->   Operation 11 'read' 'B_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%A_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %A"   --->   Operation 12 'read' 'A_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.42ns)   --->   "%i_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %i"   --->   Operation 13 'read' 'i_read' <Predicate = true> <Delay = 1.42> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = -1> <Depth = -1> <FIFO>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%shl_ln_i = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i8.i8, i8 %i_read, i8 0" [image_diff_posterize.c:41]   --->   Operation 14 'bitconcatenate' 'shl_ln_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln41 = zext i16 %shl_ln_i" [image_diff_posterize.c:41]   --->   Operation 15 'zext' 'zext_ln41' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.14ns)   --->   "%add_ln41 = add i64 %zext_ln41, i64 %A_read" [image_diff_posterize.c:41]   --->   Operation 16 'add' 'add_ln41' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (1.14ns)   --->   "%add_ln41_1 = add i64 %zext_ln41, i64 %B_read" [image_diff_posterize.c:41]   --->   Operation 17 'add' 'add_ln41_1' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%gmem0_addr = getelementptr i8 %gmem0, i64 %add_ln41" [image_diff_posterize.c:47]   --->   Operation 18 'getelementptr' 'gmem0_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%gmem1_addr = getelementptr i8 %gmem1, i64 %add_ln41_1" [image_diff_posterize.c:47]   --->   Operation 19 'getelementptr' 'gmem1_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [7/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 20 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 21 [7/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 21 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 22 [6/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 22 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 23 [6/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 23 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 7.30>
+ST_4 : Operation 24 [5/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 24 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 25 [5/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 25 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 7.30>
+ST_5 : Operation 26 [4/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 26 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 27 [4/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 27 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 7.30>
+ST_6 : Operation 28 [3/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 28 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 29 [3/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 29 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 7.30>
+ST_7 : Operation 30 [2/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 30 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 31 [2/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 31 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 7.30>
+ST_8 : Operation 32 [1/7] (7.30ns)   --->   "%empty = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem0_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 32 'readreq' 'empty' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 33 [1/7] (7.30ns)   --->   "%empty_35 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i8, i8 %gmem1_addr, i32 256" [image_diff_posterize.c:47]   --->   Operation 33 'readreq' 'empty_35' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 0.00>
+ST_9 : Operation 34 [2/2] (0.00ns)   --->   "%call_ln41 = call void @Read_Loop_proc_Pipeline_Read_Loop, i8 %gmem1, i64 %add_ln41_1, i8 %gmem0, i64 %add_ln41, i8 %image_diff_posterize_rowA_0, i8 %image_diff_posterize_rowB_0, i8 %image_diff_posterize_rowA_1, i8 %image_diff_posterize_rowB_1, i8 %image_diff_posterize_rowA_2, i8 %image_diff_posterize_rowB_2, i8 %image_diff_posterize_rowA_3, i8 %image_diff_posterize_rowB_3, i8 %image_diff_posterize_rowA_4, i8 %image_diff_posterize_rowB_4, i8 %image_diff_posterize_rowA_5, i8 %image_diff_posterize_rowB_5, i8 %image_diff_posterize_rowA_6, i8 %image_diff_posterize_rowB_6, i8 %image_diff_posterize_rowA_7, i8 %image_diff_posterize_rowB_7" [image_diff_posterize.c:41]   --->   Operation 34 'call' 'call_ln41' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 0.00>
+ST_10 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %gmem0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_3, void @empty_1, void @empty_0, i32 16, i32 16, i32 16, i32 16, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %gmem1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_14, void @empty_1, void @empty_0, i32 16, i32 16, i32 16, i32 16, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 37 [1/2] (0.00ns)   --->   "%call_ln41 = call void @Read_Loop_proc_Pipeline_Read_Loop, i8 %gmem1, i64 %add_ln41_1, i8 %gmem0, i64 %add_ln41, i8 %image_diff_posterize_rowA_0, i8 %image_diff_posterize_rowB_0, i8 %image_diff_posterize_rowA_1, i8 %image_diff_posterize_rowB_1, i8 %image_diff_posterize_rowA_2, i8 %image_diff_posterize_rowB_2, i8 %image_diff_posterize_rowA_3, i8 %image_diff_posterize_rowB_3, i8 %image_diff_posterize_rowA_4, i8 %image_diff_posterize_rowB_4, i8 %image_diff_posterize_rowA_5, i8 %image_diff_posterize_rowB_5, i8 %image_diff_posterize_rowA_6, i8 %image_diff_posterize_rowB_6, i8 %image_diff_posterize_rowA_7, i8 %image_diff_posterize_rowB_7" [image_diff_posterize.c:41]   --->   Operation 37 'call' 'call_ln41' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 38 [1/1] (0.00ns)   --->   "%ret_ln0 = ret i8 %i_read"   --->   Operation 38 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 2.58ns
+The critical path consists of the following:
+	wire read operation ('i_read') on port 'i' [24]  (1.43 ns)
+	'add' operation ('add_ln41', image_diff_posterize.c:41) [29]  (1.15 ns)
+
+ <State 2>: 7.3ns
+The critical path consists of the following:
+	'getelementptr' operation ('gmem0_addr', image_diff_posterize.c:47) [31]  (0 ns)
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 3>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 4>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 5>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 6>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 7>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 8>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('empty', image_diff_posterize.c:47) on port 'gmem0' (image_diff_posterize.c:47) [33]  (7.3 ns)
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
