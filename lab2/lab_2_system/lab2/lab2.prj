@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<hostApp:AcceleratedHostProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hostApp="http://www.xilinx.com/acceleration/hostApplication" name="lab2" location="/mnt/data2/lab_fpga/student1/lab2" platform="/opt/xilinx/platforms/xilinx_u200_gen3x16_xdma_2_202110_1/xilinx_u200_gen3x16_xdma_2_202110_1.xpfm" platformUID="xilinx:u200:gen3x16_xdma_2:202110.1" systemProject="lab2_system" sysConfig="config0_0" cpu="x86" cpuInstance="x86" os="Linux">
+  <configuration name="Emulation-SW" id="com.xilinx.ide.accel.config.sw_emu.x86.35526844">
+    <configBuildOptions xsi:type="hostApp:HostApplicationOptions"/>
+    <lastBuildOptions xsi:type="hostApp:HostApplicationOptions"/>
+  </configuration>
+  <configuration name="Emulation-HW" id="com.xilinx.ide.accel.config.hw_emu.x86.1843958475">
+    <configBuildOptions xsi:type="hostApp:HostApplicationOptions" target="hw_emu"/>
+    <lastBuildOptions xsi:type="hostApp:HostApplicationOptions" target="hw_emu"/>
+  </configuration>
+  <configuration name="Hardware" id="com.xilinx.ide.accel.config.hw.x86.50625029" dirty="true">
+    <configBuildOptions xsi:type="hostApp:HostApplicationOptions" target="hw"/>
+  </configuration>
+</hostApp:AcceleratedHostProject>
