@@ -1,7 +1,7 @@
 #include <cstring>
-#include <ap_int.h> // REQUIRED for 512-bit vector types
+#include <ap_int.h>
 
-// Optimizations for Lab 3 [cite: 2128]
+
 #define MAX_WIDTH 4096
 #define TILE_HEIGHT 128
 #define HALO 1
@@ -11,10 +11,10 @@
 #define TOTAL_BUFF_SIZE (INPUT_BUFF_HEIGHT * MAX_WIDTH)
 #define OUT_BUFF_SIZE (TILE_HEIGHT * MAX_WIDTH)
 
-// Define a 512-bit vector type (16 integers * 32 bits) [cite: 1714]
+// Define a 512-bit vector type (16 integers * 32 bits)
 typedef ap_uint<512> uint512_dt;
 
-// Helper for Lab 2 Logic [cite: 3158]
+// Helper for clipping result
 int clip(int x) {
     if (x < 0) return 0;
     if (x > 255) return 255;
@@ -65,7 +65,7 @@ void image_diff_sharpen(const uint512_dt *in1, const uint512_dt *in2, uint512_dt
         if (y + current_tile_h > height) current_tile_h = height - y;
 
         // --- READ LOOP (Wide Bus -> 1D Array) ---
-        // Transfer 512 bits (16 pixels) at a time [cite: 2128]
+        // Transfer 512 bits (16 pixels) at a time
         read_loop: for (int local_y = -HALO; local_y < current_tile_h + HALO; local_y++) {
             int global_y = y + local_y;
             int buff_row_idx = local_y + HALO;
@@ -105,7 +105,7 @@ void image_diff_sharpen(const uint512_dt *in1, const uint512_dt *in2, uint512_dt
             }
         }
 
-        // --- COMPUTE LOOP 1 (Difference + Posterize) [cite: 3004, 3010] ---
+        // --- COMPUTE LOOP 1 (Difference + Posterize) ---
         compute_diff: for (int i = 0; i < current_tile_h + 2*HALO; i++) {
             #pragma HLS UNROLL factor=16
             for (int j = 0; j < width; j++) {
@@ -116,10 +116,10 @@ void image_diff_sharpen(const uint512_dt *in1, const uint512_dt *in2, uint512_dt
 
                 int val_a = local_A[idx];
                 int val_b = local_B[idx];
-                // D(i,j) = |A - B| [cite: 3007]
+                // D(i,j) = |A - B|
                 int diff = (val_a > val_b) ? (val_a - val_b) : (val_b - val_a);
 
-                // Posterize based on T1=32, T2=96 [cite: 2995]
+                // Posterize based on T1=32, T2=96
                 int val_new = 0;
                 if (diff < 32)       val_new = 0;
                 else if (diff < 96)  val_new = 128;
@@ -129,8 +129,8 @@ void image_diff_sharpen(const uint512_dt *in1, const uint512_dt *in2, uint512_dt
             }
         }
 
-        // --- COMPUTE LOOP 2 (Sharpen Filter) [cite: 3153] ---
-        // Kernel: [[0,-1,0], [-1,5,-1], [0,-1,0]] [cite: 3155]
+        // --- COMPUTE LOOP 2 (Sharpen Filter) ---
+        // Kernel: [[0,-1,0], [-1,5,-1], [0,-1,0]]
         compute_sharpen: for (int i = 0; i < current_tile_h; i++) {
             #pragma HLS UNROLL factor=16
             for (int j = 0; j < width; j++) {
@@ -144,11 +144,11 @@ void image_diff_sharpen(const uint512_dt *in1, const uint512_dt *in2, uint512_dt
                 int row_top    = i + HALO - 1;
                 int row_bottom = i + HALO + 1;
 
-                // Border Handling: Copy Value or Set to 0 [cite: 3166]
+                // Border Handling: Copy Value or Set to 0
                 if ((y+i) == 0 || (y+i) == height-1 || j == 0 || j == width-1) {
                     local_Out[out_idx] = temp_diff[row_center * MAX_WIDTH + j];
                 } else {
-                    // 1D Stencil Access [cite: 3156]
+                    // 1D Stencil Access
                     int center = temp_diff[row_center * MAX_WIDTH + j];
                     int top    = temp_diff[row_top    * MAX_WIDTH + j];
                     int bottom = temp_diff[row_bottom * MAX_WIDTH + j];
@@ -156,7 +156,7 @@ void image_diff_sharpen(const uint512_dt *in1, const uint512_dt *in2, uint512_dt
                     int right  = temp_diff[row_center * MAX_WIDTH + (j + 1)];
 
                     int sum = (5 * center) - top - bottom - left - right;
-                    local_Out[out_idx] = clip(sum); // Clip to [0,255] [cite: 3158]
+                    local_Out[out_idx] = clip(sum); // Clip to [0,255]
                 }
             }
         }

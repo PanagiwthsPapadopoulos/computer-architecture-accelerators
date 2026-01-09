@@ -9,7 +9,7 @@
 #include <cmath>
 #include <cstdlib>
 
-// Dimensions matching your HLS Testbench settings
+// Dimensions matching HLS Testbench settings
 #define WIDTH 128
 #define HEIGHT 128
 #define DATA_SIZE (WIDTH * HEIGHT)
@@ -119,7 +119,7 @@ int main(int argc, char** argv) {
             std::cout << "Failed to program device[" << i << "] with xclbin file!\n";
         } else {
             // ------------------------------------------------------------
-            // CRITICAL CHANGE: Correct Kernel Name "image_diff_sharpen"
+            // Correct Kernel Name "image_diff_sharpen"
             // ------------------------------------------------------------
             std::cout << "Creating Kernel object for 'image_diff_sharpen'..." << std::endl;
             OCL_CHECK(err, krnl_sharpen = cl::Kernel(program, "image_diff_sharpen", &err));
